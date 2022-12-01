@@ -17,12 +17,12 @@ class _HomepageState extends State<Homepage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Singed in as : ' + user.email!, style: TextStyle(fontSize: 24),),
+              Text('Signed in as : ' + user.email!, style: TextStyle(fontSize: 24),),
               MaterialButton(onPressed:(){
                 FirebaseAuth.instance.signOut();
               },
                 color: Colors.deepOrange,
-                child: Text("Sing out"),
+                child: Text("Sign out"),
               ),
             ],
           )),
