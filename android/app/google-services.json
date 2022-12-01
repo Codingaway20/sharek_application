@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "377532415162",
+    "project_id": "sharek-application",
+    "storage_bucket": "sharek-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377532415162:android:2f75f81f894d98b3dad683",
+        "android_client_info": {
+          "package_name": "com.example.sharek_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377532415162-v10u8nok6q7kghkaacbjotrskbcojtml.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoZCtWNY8nJ6bBxCfqD2-sE8KBDIVbTaM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377532415162-v10u8nok6q7kghkaacbjotrskbcojtml.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
