@@ -10,7 +10,9 @@ and logging in and some other files that integrate those main functionalities wi
 Before starting with the files, it should be mentioned that the files are kept inside the lib folder where we have :
 
 1.main.dart -file
+
 2.auth - folder
+
 3.pages - folder
 
 Explanation:
