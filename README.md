@@ -7,6 +7,8 @@ This application will connect drivers with customer who needs to get a drive.
 This project currently  contains several files related to the main functionalities that the user will have like, registration 
 and logging in and some other files that integrate those main functionalities with the program.
 
+The proposal directory includes our progress report I submissions.
+
 Before starting with the files, it should be mentioned that the files are kept inside the lib folder where we have :
 
 1.main.dart -file
