@@ -33,9 +33,9 @@ on "have an account! sign in now" then it will direct him to the login page.
 On this page, the user will see a successful sign-in message, if he has managed to log in/register from the main page.dart file.
 
 
-5.pages/login_page.dart:
-In this page, the user will see a greeting message, email text filed, and password text fields. These fields will be directly connected to email and password controllers and these controllers will
-be used for the firebase authentication so that the user will be able to log in.
+ 5.pages/login_page.dart:
+ In this page, the user will see a greeting message, email text filed, and password text fields. These fields will be directly connected to email and           password controllers and these controllers will be used for the firebase authentication so that the user will be able to log in.
+
 
 
 6. pages/register_page.dart:
