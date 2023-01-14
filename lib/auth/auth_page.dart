@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sharek_application/pages/login_page.dart';
 
+import '../pages/choose_register_page.dart';
 import '../pages/register_page.dart';
 
 
@@ -28,7 +29,7 @@ class _authpageState extends State<authpage> {
       return LoginPage(showRegisterpage: toggleScreens);
     }
     else{
-      return Registerpage(showLoginPage: toggleScreens);
+      return ChooseRegister(showLoginPage: toggleScreens);
 
     }
   }

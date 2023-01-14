@@ -1,5 +1,9 @@
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sharek_application/pages/ClientClass.dart';
+
+import 'home_page.dart';
 
 class Registerpage extends StatefulWidget {
 
@@ -18,12 +22,16 @@ class _RegisterpageState extends State<Registerpage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _ConfirmpasswordController = TextEditingController();
+  final _PhoneController = TextEditingController();
+  Client c1 = new Client(email: "", password: "", phone: "", Tripid: "");
+
 
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
     _ConfirmpasswordController.dispose();
+    _PhoneController.dispose();
     super.dispose();
   }
 
@@ -40,7 +48,11 @@ class _RegisterpageState extends State<Registerpage> {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: _emailController.text.trim(),
           password: _passwordController.text.trim());
+      c1.createClient(email: _emailController.text.trim(), password: _passwordController.text.trim(), phone:_PhoneController.text.trim(), tripid: "");
+
     }
+    
+    
   }
   @override
   Widget build(BuildContext context) {
@@ -66,7 +78,7 @@ class _RegisterpageState extends State<Registerpage> {
                     const SizedBox(height:75),
                     //Hello driver
                     const Text(
-                      "Hello There !",
+                      "Hello User !",
                       style:TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 30,
@@ -156,13 +168,38 @@ class _RegisterpageState extends State<Registerpage> {
                       ),
                     ),
                     const SizedBox(height: 25,),
-                    //sign in button
+
                     Padding(
                       padding:EdgeInsets.symmetric(horizontal: 25),
+                      child: Container(
+                        decoration:BoxDecoration(
+                          color: Colors.white38,
+                          border:Border.all(color: Colors.white),
+                          borderRadius: BorderRadius.circular(12),
+                        ) ,
+                        child: Padding(
+                          padding: EdgeInsets.only(left:20.0),
+                          child: TextField(
+                            controller: _PhoneController,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Phone number",
+
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(height: 20,),
+                    //sign in button
+                    Padding(
+                      padding:EdgeInsets.symmetric(horizontal: 100),
                       child: GestureDetector(
                         onTap: singUp,
                         child: Container(
-                          padding:EdgeInsets.all(25.0),
+                          padding:EdgeInsets.all(15.0),
                           decoration: BoxDecoration(
                               color:Colors.orange,
                               borderRadius: BorderRadius.circular(12)),
@@ -178,29 +215,6 @@ class _RegisterpageState extends State<Registerpage> {
                       ),
                     ),
                     const SizedBox(height: 10,),
-
-                    //not a member ? Register now
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children:[
-                        Text(
-                          "Im a member",
-                          style:TextStyle(
-                            fontWeight:FontWeight.bold,
-                          ) ,
-                        ),
-                        GestureDetector(
-                          onTap:widget.showLoginPage,
-                          child: Text(
-                            "Log in now",
-                            style:TextStyle(
-                              color: Colors.blue,
-                              fontWeight:FontWeight.bold,
-                            ) ,
-                          ),
-                        ),
-                      ],
-                    ),
                   ],
                 ),
               ),

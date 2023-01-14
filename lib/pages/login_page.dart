@@ -2,12 +2,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:sharek_application/pages/Admin_interface.dart';
+import 'package:sharek_application/pages/home_page.dart';
 
 
 
 
 class LoginPage extends StatefulWidget{
 
+  static bool isAdmin = false;
   final VoidCallback showRegisterpage;
   LoginPage({Key?key , required this.showRegisterpage}) : super(key: key);
 
@@ -17,15 +20,29 @@ class LoginPage extends StatefulWidget{
 
 class _LoginPageState extends State<LoginPage>{
 
+  static bool check_admin(String em , String pas)
+  {
+    if(em == "ahmadadmin@gmail.com"  && pas == "rxz17dpl."){
+      print("admin submitted");
+      return true;
+    }else {
+      return false;
+    }
+  }
+
+
   //text controllers
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+
+
 
   Future singIn() async{
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),);
   }
+
 
   @override
   void dispose(){
@@ -51,14 +68,14 @@ class _LoginPageState extends State<LoginPage>{
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Icon(
-                  Icons.phone_android,
+                  Icons.local_taxi_rounded,
                   size: 100,
 
                 ),
                 const SizedBox(height:75),
                 //Hello driver
                 const Text(
-                    "Hello User !",
+                    "Hello Folks !",
                     style:TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
@@ -129,7 +146,13 @@ class _LoginPageState extends State<LoginPage>{
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: GestureDetector(
-                    onTap: singIn,
+                    onTap:(){
+                      singIn();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context)=>check_admin(_emailController.text.trim(), _passwordController.text.trim())? Admin_interface() : Homepage() )
+                      );
+                    },
                     child: Container(
                       padding: const EdgeInsets.all(25.0),
                       decoration: BoxDecoration(
