@@ -35,8 +35,8 @@ on "have an account! sign in now" then it will direct him to the login page.
 On this page, the user will see a successful sign-in message, if he has managed to log in/register from the main page.dart file.
 
 
- 5.pages/login_page.dart:
- In this page, the user will see a greeting message, email text filed, and password text fields. These fields will be directly connected to email and           password controllers and these controllers will be used for the firebase authentication so that the user will be able to log in.
+5.pages/login_page.dart:
+In this page, the user will see a greeting message, email text filed, and password text fields. These fields will be directly connected to email and          password controllers and these controllers will be used for the firebase authentication so that the user will be able to log in.
 
 
 
@@ -45,3 +45,23 @@ On this page, the user will almost see the same screen he has seen on the login 
 the confirm password field so that we can make sure that the two passwords are the same. Then, the information will be sent to the cloud and saved there, so that the user will be able to log in again later.
 After registration, the homepage will be shown as in the case of login.  
 
+7. sharek_application/lib/pages/Admin_Modify_Client_page.dart:
+
+8. sharek_application/lib/pages/Admin_Modify_Driver_page.dart:
+9. sharek_application/lib/pages/Admin_Modify_Trip_page.dart:
+10. sharek_application/lib/pages/Admin_interface.dart:
+11. sharek_application/lib/pages/Admin_view_Clients.dart:
+12. sharek_application/lib/pages/Admin_view_Drivers.dart:
+13. sharek_application/lib/pages/Admin_view_Trips.dart:
+14. sharek_application/lib/pages/ClientClass.dart:
+15. sharek_application/lib/pages/DriverClass.dart:
+16. sharek_application/lib/pages/TripClass.dart:
+17. sharek_application/lib/pages/Trips.dart:
+18. sharek_application/lib/pages/ViewDatabase.dart:
+19. sharek_application/lib/pages/ViewModificationpage.dart:
+20. sharek_application/lib/pages/choose_register_page.dart:
+21. sharek_application/lib/pages/driver_register_page.dart:
+22. sharek_application/lib/pages/home_page.dart:
+23. sharek_application/lib/pages/list_drivers.dart:
+24. sharek_application/lib/pages/register_page.dart:
+25. sharek_application/lib/pages/share_drive.dart:
