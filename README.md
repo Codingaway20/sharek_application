@@ -4,6 +4,9 @@ This application will connect drivers with customer who needs to get a drive.
 
 ## Getting Started
 
+Note:
+sharek_application/Project Report Submission folder contains all the reports submissions for this course.
+
 This project currently  contains several files related to the main functionalities that the user will have like, registration 
 and logging in and some other files that integrate those main functionalities with the program.
 
