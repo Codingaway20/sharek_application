@@ -5,10 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sharek_application/pages/share_drive.dart';
-
-
-
-
 import 'DriverClass.dart';
 import 'home_page.dart';
 
@@ -35,9 +31,8 @@ class _ListDriversState extends State<ListDrivers> with SingleTickerProviderStat
 
   }
 
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { // list of drivers widget
     return Scaffold(
       appBar: AppBar(
         title: Text("Drivers List"),
@@ -82,7 +77,6 @@ Stream<List<Driver>> readUsers()=> FirebaseFirestore.instance
           snapshot.docs.map((doc)=> Driver.fromJson(doc.data())).toList());
 
 
-
 _makingPhoneCall(String num) async {
   var url = Uri.parse(num);
   if (await UrlLauncher.canLaunchUrl(url)) {
@@ -94,7 +88,7 @@ _makingPhoneCall(String num) async {
 
 
 
-Widget buildUser(Driver user) => ListTile(
+Widget buildUser(Driver user) => ListTile( // tel number widget
 
   leading: CircleAvatar(
     radius: 40.0,
@@ -110,8 +104,6 @@ Widget buildUser(Driver user) => ListTile(
     _makingPhoneCall(phonenum);
   },
 );
-
-
 
 Widget buildUser2(Driver user) => ListTile(
 

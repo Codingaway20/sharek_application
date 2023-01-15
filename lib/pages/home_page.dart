@@ -127,5 +127,5 @@ class _HomepageState extends State<Homepage> {
         ],
       ),
     );
-  }
+  } // menu widget
 }

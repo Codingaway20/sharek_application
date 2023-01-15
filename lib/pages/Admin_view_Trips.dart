@@ -7,7 +7,6 @@ import 'package:sharek_application/pages/TripClass.dart';
 
 import 'list_drivers.dart';
 
-
 class AdminViewTrips extends StatefulWidget {
   const AdminViewTrips({Key? key}) : super(key: key);
 
@@ -47,15 +46,11 @@ class _AdminViewTripsState extends State<AdminViewTrips> {
 }
 
 
-
-
 Stream<List<Trip>> readTrips()=> FirebaseFirestore.instance
     .collection("Trip")
     .snapshots()
     .map((snapshot)=>
     snapshot.docs.map((doc)=> Trip.fromJson(doc.data())).toList());
-
-
 
 Widget buildTrip(Trip trip) => ListTile(
   //CircleAvatar(child: Text('${user.id}')),

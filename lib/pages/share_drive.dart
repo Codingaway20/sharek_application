@@ -47,15 +47,11 @@ class _ShareDriveState extends State<ShareDrive> {
   }
 }
 
-
-
-
 Stream<List<Trip>> readTrips()=> FirebaseFirestore.instance
     .collection("Trip")
     .snapshots()
     .map((snapshot)=>
         snapshot.docs.map((doc)=> Trip.fromJson(doc.data())).toList());
-
 
 
 Widget buildTrip(Trip trip) => ListTile(

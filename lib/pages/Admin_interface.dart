@@ -1,13 +1,19 @@
 
 
 
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sharek_application/pages/ClientClass.dart';
 import 'package:sharek_application/pages/ViewDatabase.dart';
-
 import 'ViewModificationpage.dart';
+import 'dart:io' as io;
+import 'package:path_provider/path_provider.dart';
+
+
 
 class Admin_interface extends StatefulWidget {
   const Admin_interface({Key? key}) : super(key: key);
@@ -20,6 +26,52 @@ class Admin_interface extends StatefulWidget {
 }
 
 class _Admin_interfaceState extends State<Admin_interface> {
+
+  Future<String> getDocumentsAsString(String collectionName) async {
+    String documentsInString = "";
+    // Get a reference to the Firestore collection
+    CollectionReference collectionRef = FirebaseFirestore.instance.collection(collectionName);
+    // Get all documents in the collection
+    QuerySnapshot querySnapshot = await collectionRef.get();
+    querySnapshot.docs.forEach((document) {
+      // Append the data from each document to the String
+      documentsInString += ("\n" + document.data().toString());
+    });
+    return documentsInString;
+  }
+
+  Future<String> get _localPath async {
+    final directory = await getApplicationDocumentsDirectory();
+    return directory.path;
+  }
+
+  _write(String text) async {
+    final Directory directory = await getApplicationDocumentsDirectory();
+    final File file = File('${directory.path}/Clinet.txt');
+    await file.writeAsString(text);
+  }
+
+  Future <void> Backup() async{
+
+    String content = await getDocumentsAsString("Clinet");
+    await _write(content);
+    print("All saved successfully");
+  }
+
+
+
+
+
+
+
+
+
+
+
+  //Methods related to Back
+
+
+
 
   static Client c1 = new Client(email: "", password: "", phone: "", Tripid: "");
 
@@ -43,12 +95,6 @@ class _Admin_interfaceState extends State<Admin_interface> {
         document.reference.delete();
       });
     });
-
-  }
-
-  static void Modify_database()
-  {
-
 
   }
 
@@ -160,6 +206,36 @@ class _Admin_interfaceState extends State<Admin_interface> {
                     borderRadius: BorderRadius.circular(12)),
                 child: const Center(
                   child: Text("Modify Database",style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20
+                  ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          //BackUp
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: GestureDetector(
+              onTap:(){
+                Backup();
+                /*
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context)=>ViewModificationPage())
+                );
+                */
+
+              },
+              child: Container(
+                padding: const EdgeInsets.all(25.0),
+                decoration: BoxDecoration(
+                    color:Colors.red,
+                    borderRadius: BorderRadius.circular(12)),
+                child: const Center(
+                  child: Text("BackUp",style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 20

@@ -31,7 +31,6 @@ class _Admin_view_ClientsState extends State<Admin_view_Clients> with SingleTick
 
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,6 +58,7 @@ class _Admin_view_ClientsState extends State<Admin_view_Clients> with SingleTick
   }
 }
 
+// reads client records
 Stream<List<Client>> readUsers()=> FirebaseFirestore.instance
     .collection("Clinet")
     .snapshots()
@@ -87,9 +87,6 @@ NetworkImage User_photo()
 {
   return NetworkImage("https://cdn-icons-png.flaticon.com/512/6009/6009864.png");
 }
-
-
-
 
 Widget buildUser(Client user) => ListTile(
   leading: CircleAvatar(

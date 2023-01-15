@@ -8,8 +8,6 @@ import 'package:sharek_application/pages/share_drive.dart';
 import 'DriverClass.dart';
 import 'home_page.dart';
 
-
-
 class Admin_view_Drivers extends StatefulWidget {
   static String requestedName = "";
   const Admin_view_Drivers({Key? key}) : super(key: key);
@@ -27,7 +25,6 @@ class _Admin_view_DriversState extends State<Admin_view_Drivers> with SingleTick
     return (s1.split('@'))[0];
 
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +59,6 @@ Stream<List<Driver>> readUsers()=> FirebaseFirestore.instance
     .map((snapshot)=>
     snapshot.docs.map((doc)=> Driver.fromJson(doc.data())).toList());
 
-
-
 _makingPhoneCall(String num) async {
   var url = Uri.parse(num);
   if (await UrlLauncher.canLaunchUrl(url)) {
@@ -72,10 +67,6 @@ _makingPhoneCall(String num) async {
     throw 'Could not launch $url';
   }
 }
-
-
-
-
 Widget buildUser(Driver user) => ListTile(
   leading: CircleAvatar(
     radius: 40.0,

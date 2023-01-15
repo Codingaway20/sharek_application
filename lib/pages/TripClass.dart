@@ -35,8 +35,6 @@ class Trip {
 
   );
 
-
-
   Future createTrip ({String? tripId , required String DriverName , required String tripSource , required String tripDistination , required String tripTime}) async{
 
     final docTrip = FirebaseFirestore.instance.collection('Trip').doc();

@@ -5,9 +5,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:sharek_application/pages/Admin_interface.dart';
 import 'package:sharek_application/pages/home_page.dart';
 
-
-
-
 class LoginPage extends StatefulWidget{
 
   static bool isAdmin = false;
@@ -30,12 +27,9 @@ class _LoginPageState extends State<LoginPage>{
     }
   }
 
-
   //text controllers
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-
-
 
   Future singIn() async{
     await FirebaseAuth.instance.signInWithEmailAndPassword(
